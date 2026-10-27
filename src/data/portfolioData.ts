@@ -13,14 +13,14 @@ export const BIO = {
   name: "Prabhath Guntupalli",
   handle: "NOOB-CODER127",
   role: "Security Engineer & Systems Developer",
-  status: "Security Engineering • Systems & Detection • Open Source",
+  status: "Security Engineering • Systems & Threat Detection",
   location: "India • Remote",
   email: "007praba20@gmail.com",
   github: "https://github.com/NOOB-CODER127",
   summary: [
     "I focus on endpoint detection & response (EDR), security automation, and offensive tooling.",
-    "Currently building SpyderXDR, an open-source detection platform that ingests real-time endpoint telemetry via Sysmon & Kafka, and HexStrike AI, an MCP framework that connects 150+ security tools to autonomous LLM workflows.",
-    "I also lead technical infrastructure at NullChapter (VIT-AP), where I built NullBox to spin up on-demand, isolated Docker containers for CTF challenges."
+    "Currently building SpyderXDR, an enterprise detection platform that ingests real-time endpoint telemetry via Sysmon and Kafka, and HexStrike AI, an MCP framework that connects 150+ security tools to autonomous LLM workflows.",
+    "I also engineer CTF infrastructure, having developed NullBox to provision on-demand, isolated Docker containers for live security competitions."
   ]
 };
 
@@ -29,7 +29,7 @@ export const PROJECTS: Project[] = [
     title: "SpyderXDR",
     year: "2024",
     status: "Active",
-    description: "Open-source Extended Detection & Response platform for real-time endpoint telemetry and incident response.",
+    description: "Extended Detection & Response platform for real-time endpoint telemetry and incident response.",
     details: "Built a high-throughput telemetry pipeline processing Windows Sysmon and Linux audit logs through Kafka and Fluentd. Correlates process, network, and registry events against MITRE ATT&CK techniques with sub-second alert latency and automated containment actions.",
     tags: ["FastAPI", "React", "Docker", "Sysmon", "Kafka", "Fluentd", "Python"],
     githubUrl: "https://github.com/NOOB-CODER127",
@@ -48,14 +48,14 @@ export const PROJECTS: Project[] = [
     year: "2023 - 2024",
     status: "Production",
     description: "Container-based CTF infrastructure with on-demand isolated challenge environments.",
-    details: "Developed for NullChapter VIT-AP to host dynamic security competitions. Spawns ephemeral, private Docker containers per team on demand to eliminate challenge state collisions and flag leaks. Includes real-time dynamic scoring and WebSocket scoreboards.",
+    details: "Engineered to host dynamic security competitions. Spawns ephemeral, private Docker containers per team on demand to eliminate challenge state collisions and flag leaks. Features real-time dynamic scoring and WebSocket scoreboards.",
     tags: ["Docker SDK", "Python", "FastAPI", "Redis", "WebSockets"],
     githubUrl: "https://github.com/NOOB-CODER127",
   },
   {
     title: "VaultSeeker",
     year: "2024",
-    status: "Open Source",
+    status: "Active",
     description: "Fast secret and credential scanner for source trees, git history, and memory dumps.",
     details: "Multi-threaded scanner that combines compiled regex patterns with Shannon entropy analysis to detect leaked tokens, private keys, and environment variables while minimizing false positives.",
     tags: ["Python", "AST Parsing", "Entropy Analysis"],
@@ -70,7 +70,7 @@ export const SKILL_CATEGORIES = [
   },
   {
     name: "Offensive & Assessment",
-    skills: ["Web & API Penetration Testing", "Burp Suite Pro", "Nmap & Network Recon", "Metasploit", "Reverse Engineering basics", "Exploit PoC Development"]
+    skills: ["Web & API Penetration Testing", "Burp Suite Pro", "Nmap & Network Recon", "Metasploit", "Reverse Engineering Basics", "Exploit PoC Development"]
   },
   {
     name: "Development & Systems",
@@ -80,23 +80,23 @@ export const SKILL_CATEGORIES = [
 
 export const EXPERIENCE = [
   {
-    role: "Core Technical Lead & CTF Architect",
-    entity: "NullChapter (VIT-AP)",
-    period: "2023 — Present",
+    role: "Lead Platform Architect & Security Researcher",
+    entity: "SpyderXDR & HexStrike Initiatives",
+    period: "2024 — Present",
     points: [
-      "Built NullBox, an on-demand containerized CTF platform used to host dynamic security events.",
-      "Authored 25+ challenges across web security, reverse engineering, and cryptography.",
-      "Mentored members in defensive monitoring, network analysis, and ethical hacking."
+      "Designed and implemented SpyderXDR, an enterprise EDR platform featuring sub-second Sysmon log streaming and ML threat detection.",
+      "Developed HexStrike AI, orchestrating 150+ security tools via the Model Context Protocol for automated penetration testing.",
+      "Engineered automated containment playbooks and MITRE ATT&CK alert classification."
     ]
   },
   {
-    role: "Independent Security Researcher & Tool Builder",
-    entity: "Open Source Projects",
+    role: "CTF Infrastructure Architect & Challenge Developer",
+    entity: "Security Competitions & Cyber Ranges",
     period: "2023 — Present",
     points: [
-      "Designed and launched SpyderXDR, an open-source EDR platform with sub-second Sysmon ingestion.",
-      "Developed HexStrike AI, orchestrating 150+ security tools via the Model Context Protocol.",
-      "Created VaultSeeker for multi-threaded secret detection in repositories and memory artifacts."
+      "Built NullBox, an on-demand containerized CTF platform providing zero-collision Docker sandbox environments for competitors.",
+      "Authored 25+ technical challenges spanning Web exploitation, Reverse Engineering, and Cryptography.",
+      "Conducted technical workshops on endpoint telemetry, network analysis, and vulnerability exploitation."
     ]
   }
 ];

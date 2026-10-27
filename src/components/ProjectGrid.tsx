@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PROJECTS } from '../data/portfolioData';
-import { Github, ChevronDown, ChevronUp } from 'lucide-react';
+import { Github, ChevronDown, ChevronUp, Layers } from 'lucide-react';
 
 export const ProjectGrid: React.FC = () => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
@@ -13,22 +13,22 @@ export const ProjectGrid: React.FC = () => {
     <section id="projects" className="py-10">
       <div className="max-w-3xl mx-auto px-6">
         <div className="flex items-baseline justify-between mb-8">
-          <h2 className="text-xs font-mono uppercase tracking-wider text-zinc-400">
+          <h2 className="text-xs font-mono uppercase tracking-wider text-zinc-400 font-semibold">
             Selected Projects
           </h2>
-          <span className="text-xs font-mono text-zinc-600">
-            {PROJECTS.length} systems
+          <span className="text-xs font-mono text-zinc-500">
+            {PROJECTS.length} Systems
           </span>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-5">
           {PROJECTS.map((project, idx) => {
             const isExpanded = expandedIndex === idx;
 
             return (
               <div
                 key={project.title}
-                className="group p-5 rounded-xl bg-surface/50 border border-border hover:border-zinc-700 transition-all duration-200"
+                className="group p-5 sm:p-6 rounded-2xl bg-surface/50 border border-border hover:border-zinc-700/80 transition-all duration-200 hover:bg-surface/70 shadow-sm"
               >
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-2">
                   <div className="flex items-center gap-2.5">
@@ -36,12 +36,12 @@ export const ProjectGrid: React.FC = () => {
                       {project.title}
                     </h3>
                     {project.status && (
-                      <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-300">
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-zinc-800/90 text-zinc-300 border border-zinc-700/60 font-medium">
                         {project.status}
                       </span>
                     )}
                   </div>
-                  <div className="flex items-center gap-3 text-xs font-mono text-zinc-500">
+                  <div className="flex items-center gap-3 text-xs font-mono text-zinc-400">
                     <span>{project.year}</span>
                     {project.githubUrl && (
                       <a
@@ -49,7 +49,7 @@ export const ProjectGrid: React.FC = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-zinc-400 hover:text-white transition-colors"
-                        title="GitHub source"
+                        title="View on GitHub"
                       >
                         <Github className="w-4 h-4" />
                       </a>
@@ -57,7 +57,7 @@ export const ProjectGrid: React.FC = () => {
                   </div>
                 </div>
 
-                <p className="text-sm text-zinc-300 leading-relaxed mb-3">
+                <p className="text-sm text-zinc-300 leading-relaxed mb-4">
                   {project.description}
                 </p>
 
@@ -65,25 +65,29 @@ export const ProjectGrid: React.FC = () => {
                 <div className="text-xs">
                   <button
                     onClick={() => toggleExpand(idx)}
-                    className="inline-flex items-center gap-1 font-mono text-zinc-400 hover:text-emerald-400 transition-colors mb-2"
+                    className="inline-flex items-center gap-1.5 font-mono text-xs text-zinc-400 hover:text-emerald-400 transition-colors mb-2 font-medium"
                   >
-                    <span>{isExpanded ? 'Hide details' : 'Architecture & details'}</span>
+                    <Layers className="w-3.5 h-3.5" />
+                    <span>{isExpanded ? 'Hide Architecture Details' : 'Architecture & Details'}</span>
                     {isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
                   </button>
 
                   {isExpanded && (
-                    <div className="mt-2 p-3 rounded bg-canvas border border-border-subtle text-zinc-300 leading-relaxed font-sans text-xs">
-                      {project.details}
+                    <div className="mt-2.5 p-4 rounded-xl bg-canvas border border-border-subtle text-zinc-300 leading-relaxed font-sans text-xs space-y-2 animate-in fade-in duration-150">
+                      <div className="text-[11px] font-mono text-emerald-400 uppercase tracking-wider font-semibold">
+                        System Architecture:
+                      </div>
+                      <p>{project.details}</p>
                     </div>
                   )}
                 </div>
 
-                {/* Tags */}
+                {/* Tech Stack Tags */}
                 <div className="mt-4 flex flex-wrap gap-1.5">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-[11px] font-mono px-2 py-0.5 rounded bg-canvas text-zinc-400 border border-border-subtle"
+                      className="text-[11px] font-mono px-2.5 py-0.5 rounded-md bg-canvas/80 text-zinc-300 border border-border-subtle"
                     >
                       {tag}
                     </span>

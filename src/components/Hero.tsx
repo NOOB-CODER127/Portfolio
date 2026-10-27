@@ -1,6 +1,6 @@
 import React from 'react';
 import { BIO } from '../data/portfolioData';
-import { ArrowUpRight, Github, Mail, ArrowRight } from 'lucide-react';
+import { ArrowUpRight, Github, Mail, ArrowRight, ShieldCheck, Cpu, History } from 'lucide-react';
 import { TabId } from './Navbar';
 
 interface HeroProps {
@@ -11,7 +11,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectTab }) => {
   return (
     <section className="py-10">
       <div className="max-w-3xl mx-auto px-6">
-        {/* Availability / Status indicator */}
+        {/* Status indicator */}
         <div className="inline-flex items-center gap-2 mb-6 text-xs font-mono text-zinc-400">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -35,49 +35,58 @@ export const Hero: React.FC<HeroProps> = ({ onSelectTab }) => {
           ))}
         </div>
 
-        {/* Quick Tab Jump Cards */}
+        {/* Quick Navigation Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8 pt-6 border-t border-border-subtle">
           <button
             onClick={() => onSelectTab('projects')}
-            className="p-3.5 rounded-xl bg-surface/50 border border-border hover:border-zinc-700 text-left transition-all group"
+            className="p-4 rounded-xl bg-surface/50 border border-border hover:border-zinc-700 text-left transition-all group hover:bg-surface/80"
           >
             <div className="text-xs font-mono text-zinc-400 mb-1 flex items-center justify-between">
-              <span>Selected Work</span>
+              <span className="flex items-center gap-1.5 text-zinc-300">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                <span>Selected Work</span>
+              </span>
               <ArrowRight className="w-3.5 h-3.5 text-zinc-500 group-hover:text-emerald-400 transition-colors" />
             </div>
             <div className="text-sm font-medium text-zinc-200 group-hover:text-emerald-400 transition-colors">
-              SpyderXDR, HexStrike & more
+              SpyderXDR & HexStrike
             </div>
           </button>
 
           <button
             onClick={() => onSelectTab('skills')}
-            className="p-3.5 rounded-xl bg-surface/50 border border-border hover:border-zinc-700 text-left transition-all group"
+            className="p-4 rounded-xl bg-surface/50 border border-border hover:border-zinc-700 text-left transition-all group hover:bg-surface/80"
           >
             <div className="text-xs font-mono text-zinc-400 mb-1 flex items-center justify-between">
-              <span>Stack & Arsenal</span>
-              <ArrowRight className="w-3.5 h-3.5 text-zinc-500 group-hover:text-emerald-400 transition-colors" />
+              <span className="flex items-center gap-1.5 text-zinc-300">
+                <Cpu className="w-3.5 h-3.5 text-cyan-400" />
+                <span>Technical Stack</span>
+              </span>
+              <ArrowRight className="w-3.5 h-3.5 text-zinc-500 group-hover:text-cyan-400 transition-colors" />
             </div>
-            <div className="text-sm font-medium text-zinc-200 group-hover:text-emerald-400 transition-colors">
-              Detection, Offensive & Systems
+            <div className="text-sm font-medium text-zinc-200 group-hover:text-cyan-400 transition-colors">
+              Detection & Offensive Tools
             </div>
           </button>
 
           <button
             onClick={() => onSelectTab('experience')}
-            className="p-3.5 rounded-xl bg-surface/50 border border-border hover:border-zinc-700 text-left transition-all group"
+            className="p-4 rounded-xl bg-surface/50 border border-border hover:border-zinc-700 text-left transition-all group hover:bg-surface/80"
           >
             <div className="text-xs font-mono text-zinc-400 mb-1 flex items-center justify-between">
-              <span>Timeline</span>
-              <ArrowRight className="w-3.5 h-3.5 text-zinc-500 group-hover:text-emerald-400 transition-colors" />
+              <span className="flex items-center gap-1.5 text-zinc-300">
+                <History className="w-3.5 h-3.5 text-indigo-400" />
+                <span>Experience</span>
+              </span>
+              <ArrowRight className="w-3.5 h-3.5 text-zinc-500 group-hover:text-indigo-400 transition-colors" />
             </div>
-            <div className="text-sm font-medium text-zinc-200 group-hover:text-emerald-400 transition-colors">
-              NullChapter & Open Source
+            <div className="text-sm font-medium text-zinc-200 group-hover:text-indigo-400 transition-colors">
+              Architecture & Research
             </div>
           </button>
         </div>
 
-        {/* Quick links */}
+        {/* Quick Links */}
         <div className="flex items-center gap-4 text-xs font-mono">
           <a
             href={BIO.github}
@@ -86,7 +95,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectTab }) => {
             className="inline-flex items-center gap-1.5 text-zinc-300 hover:text-white transition-colors"
           >
             <Github className="w-3.5 h-3.5" />
-            <span>github.com/{BIO.handle}</span>
+            <span>GitHub ({BIO.handle})</span>
             <ArrowUpRight className="w-3 h-3 text-zinc-500" />
           </a>
           <span className="text-zinc-700">•</span>
