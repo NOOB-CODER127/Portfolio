@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ProjectGrid } from './components/ProjectGrid';
@@ -7,39 +6,20 @@ import { SkillsSection } from './components/SkillsSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { InteractiveTerminal } from './components/InteractiveTerminal';
 
 export function App() {
-  const [terminalOpen, setTerminalOpen] = useState(false);
-  const [selectedService, setSelectedService] = useState<string>('');
-
-  const handleSelectService = (serviceTitle: string) => {
-    setSelectedService(serviceTitle);
-  };
-
   return (
-    <div className="min-h-screen bg-cyber-950 text-slate-100 flex flex-col font-sans selection:bg-emerald-500/30 selection:text-emerald-300">
-      {/* Navigation */}
-      <Navbar onOpenTerminal={() => setTerminalOpen(true)} />
-
-      {/* Hero Section */}
+    <div className="min-h-screen bg-canvas text-zinc-200 selection:bg-zinc-800 selection:text-zinc-100 flex flex-col font-sans antialiased">
+      <Navbar />
       <main className="flex-1">
-        <Hero onOpenTerminal={() => setTerminalOpen(true)} />
+        <Hero />
         <ProjectGrid />
-        <ServicesSection onSelectService={handleSelectService} />
+        <ServicesSection />
         <SkillsSection />
         <ExperienceSection />
-        <ContactSection selectedService={selectedService} />
+        <ContactSection />
       </main>
-
-      {/* Footer */}
       <Footer />
-
-      {/* Interactive Terminal Drawer/Modal */}
-      <InteractiveTerminal
-        isOpen={terminalOpen}
-        onClose={() => setTerminalOpen(false)}
-      />
     </div>
   );
 }

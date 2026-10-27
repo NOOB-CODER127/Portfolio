@@ -1,71 +1,98 @@
 import React, { useState } from 'react';
-import { ProjectCard } from './ProjectCard';
-import { ProjectModal } from './ProjectModal';
 import { PROJECTS, Project } from '../data/portfolioData';
-import { Shield } from 'lucide-react';
+import { ArrowUpRight, Github, ChevronDown, ChevronUp } from 'lucide-react';
 
 export const ProjectGrid: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
-  const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
-  const categories = ['All', 'Defense & EDR', 'AI & Automation', 'CTF & Cloud', 'Offensive Tools'];
-
-  const filteredProjects = selectedCategory === 'All' 
-    ? PROJECTS 
-    : PROJECTS.filter(p => p.category === selectedCategory);
+  const toggleExpand = (idx: number) => {
+    setExpandedIndex(expandedIndex === idx ? null : idx);
+  };
 
   return (
-    <section id="projects" className="py-24 bg-cyber-950 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-950/60 border border-emerald-800/60 text-xs font-mono text-emerald-400 mb-3">
-              <Shield className="w-3.5 h-3.5" />
-              <span>FLAGSHIP ENGINEERING</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-              Featured Systems & Tools
-            </h2>
-            <p className="mt-2 text-base text-slate-400 max-w-2xl">
-              Production-tested platforms covering endpoint threat detection, autonomous multi-agent AI frameworks, and scalable cyber range sandboxes.
-            </p>
-          </div>
+    <section id="projects" className="py-14 border-b border-border-subtle">
+      <div className="max-w-3xl mx-auto px-6">
+        <div className="flex items-baseline justify-between mb-8">
+          <h2 className="text-xs font-mono uppercase tracking-wider text-zinc-400">
+            Selected Projects
+          </h2>
+          <span className="text-xs font-mono text-zinc-600">
+            {PROJECTS.length} systems
+          </span>
+        </div>
 
-          {/* Filter Pills */}
-          <div className="mt-6 md:mt-0 flex flex-wrap gap-2">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-mono transition-all ${
-                  selectedCategory === cat
-                    ? 'bg-emerald-400 text-cyber-950 font-bold shadow-md shadow-emerald-500/20'
-                    : 'bg-cyber-900 text-slate-400 hover:text-white border border-cyber-800 hover:border-cyber-700'
-                }`}
+        <div className="space-y-6">
+          {PROJECTS.map((project, idx) => {
+            const isExpanded = expandedIndex === idx;
+
+            return (
+              <div
+                key={project.title}
+                className="group p-5 rounded-xl bg-surface/50 border border-border hover:border-zinc-700 transition-all duration-200"
               >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </div>
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-2">
+                  <div className="flex items-center gap-2.5">
+                    <h3 className="text-base font-semibold text-zinc-100 group-hover:text-emerald-400 transition-colors">
+                      {project.title}
+                    </h3>
+                    {project.status && (
+                      <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-300">
+                        {project.status}
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-3 text-xs font-mono text-zinc-500">
+                    <span>{project.year}</span>
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-zinc-400 hover:text-white transition-colors"
+                        title="GitHub source"
+                      >
+                        <Github className="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>
+                </div>
 
-        {/* Project Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              onSelect={(p) => setActiveModalProject(p)}
-            />
-          ))}
-        </div>
+                <p className="text-sm text-zinc-300 leading-relaxed mb-3">
+                  {project.description}
+                </p>
 
-        {/* Deep Dive Modal */}
-        <ProjectModal
-          project={activeModalProject}
-          onClose={() => setActiveModalProject(null)}
-        />
+                {/* Technical details toggle */}
+                <div className="text-xs">
+                  <button
+                    onClick={() => toggleExpand(idx)}
+                    className="inline-flex items-center gap-1 font-mono text-zinc-400 hover:text-emerald-400 transition-colors mb-2"
+                  >
+                    <span>{isExpanded ? 'Hide details' : 'Architecture & details'}</span>
+                    {isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                  </button>
+
+                  {isExpanded && (
+                    <div className="mt-2 p-3 rounded bg-canvas border border-border-subtle text-zinc-300 leading-relaxed font-sans text-xs">
+                      {project.details}
+                    </div>
+                  )}
+                </div>
+
+                {/* Tags */}
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[11px] font-mono px-2 py-0.5 rounded bg-canvas text-zinc-400 border border-border-subtle"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
