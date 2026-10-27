@@ -49,7 +49,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectTab }) => {
               <ArrowRight className="w-3.5 h-3.5 text-zinc-500 group-hover:text-emerald-400 transition-colors" />
             </div>
             <div className="text-sm font-medium text-zinc-200 group-hover:text-emerald-400 transition-colors">
-              SpyderXDR & HexStrike
+              SpyderXDR, AegisRay & HexStrike
             </div>
           </button>
 
