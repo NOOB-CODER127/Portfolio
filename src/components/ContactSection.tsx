@@ -18,13 +18,13 @@ export const ContactSection: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const subject = encodeURIComponent(`Message from ${name}`);
-    const body = encodeURIComponent(`Hi Prab,\n\n${message}\n\nFrom: ${name} (${email})`);
+    const body = encodeURIComponent(`Hi Prabhath,\n\n${message}\n\nFrom: ${name} (${email})`);
     window.open(`mailto:${BIO.email}?subject=${subject}&body=${body}`, '_blank');
     setSubmitted(true);
   };
 
   return (
-    <section id="contact" className="py-14">
+    <section id="contact" className="py-10">
       <div className="max-w-3xl mx-auto px-6">
         <div className="mb-6">
           <h2 className="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">

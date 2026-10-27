@@ -3,7 +3,7 @@ import { EXPERIENCE } from '../data/portfolioData';
 
 export const ExperienceSection: React.FC = () => {
   return (
-    <section id="experience" className="py-14 border-b border-border-subtle">
+    <section id="experience" className="py-10">
       <div className="max-w-3xl mx-auto px-6">
         <div className="mb-8">
           <h2 className="text-xs font-mono uppercase tracking-wider text-zinc-400">

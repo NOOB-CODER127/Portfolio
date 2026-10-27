@@ -10,7 +10,7 @@ export interface Project {
 }
 
 export const BIO = {
-  name: "Prabakaran",
+  name: "Prabhath Guntupalli",
   handle: "NOOB-CODER127",
   role: "Security Engineer & Systems Developer",
   status: "Security Engineering • Systems & Detection • Open Source",
