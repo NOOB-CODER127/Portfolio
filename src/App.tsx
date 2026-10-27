@@ -1,7 +1,6 @@
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ProjectGrid } from './components/ProjectGrid';
-import { ServicesSection } from './components/ServicesSection';
 import { SkillsSection } from './components/SkillsSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { ContactSection } from './components/ContactSection';
@@ -14,7 +13,6 @@ export function App() {
       <main className="flex-1">
         <Hero />
         <ProjectGrid />
-        <ServicesSection />
         <SkillsSection />
         <ExperienceSection />
         <ContactSection />

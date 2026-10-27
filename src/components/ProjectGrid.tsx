@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { PROJECTS, Project } from '../data/portfolioData';
-import { ArrowUpRight, Github, ChevronDown, ChevronUp } from 'lucide-react';
+import { PROJECTS } from '../data/portfolioData';
+import { Github, ChevronDown, ChevronUp } from 'lucide-react';
 
 export const ProjectGrid: React.FC = () => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);

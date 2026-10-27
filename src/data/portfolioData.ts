@@ -9,17 +9,11 @@ export interface Project {
   status?: string;
 }
 
-export interface Service {
-  title: string;
-  description: string;
-  deliverables: string[];
-}
-
 export const BIO = {
   name: "Prabakaran",
   handle: "NOOB-CODER127",
   role: "Security Engineer & Systems Developer",
-  status: "Available for freelance security audits & full-time roles",
+  status: "Security Engineering • Systems & Detection • Open Source",
   location: "India • Remote",
   email: "007praba20@gmail.com",
   github: "https://github.com/NOOB-CODER127",
@@ -66,46 +60,6 @@ export const PROJECTS: Project[] = [
     details: "Multi-threaded scanner that combines compiled regex patterns with Shannon entropy analysis to detect leaked tokens, private keys, and environment variables while minimizing false positives.",
     tags: ["Python", "AST Parsing", "Entropy Analysis"],
     githubUrl: "https://github.com/NOOB-CODER127",
-  }
-];
-
-export const SERVICES: Service[] = [
-  {
-    title: "Penetration Testing & Security Audits",
-    description: "Manual, scoped assessments of web apps, REST APIs, and cloud infrastructure to identify real-world attack vectors.",
-    deliverables: [
-      "Executive summary & technical vulnerability report",
-      "Reproducible Proof-of-Concept (PoC) exploit scripts",
-      "Concrete code and architecture remediation advice",
-      "Free re-test after patches are deployed"
-    ]
-  },
-  {
-    title: "Custom Security Tooling & AI MCP Agents",
-    description: "Tailored automation, tool wrappers, and Model Context Protocol servers to automate repetitive security workflows.",
-    deliverables: [
-      "Custom MCP servers connecting internal tools to LLMs",
-      "Automated recon, triage, and scanning scripts",
-      "Containerized deployment & clean documentation"
-    ]
-  },
-  {
-    title: "EDR & Detection Engineering",
-    description: "Designing telemetry pipelines and building actionable detection rules mapped to attacker tradecraft.",
-    deliverables: [
-      "Tuned Sysmon and auditd configuration files",
-      "Detection-as-Code rules mapped to MITRE ATT&CK",
-      "Log ingestion pipelines using Kafka or Fluentd"
-    ]
-  },
-  {
-    title: "CTF & Cyber Range Infrastructure",
-    description: "Setting up custom security competitions, on-demand Docker challenge sandboxes, and bespoke exploitation labs.",
-    deliverables: [
-      "Turnkey containerized CTF platform deployment",
-      "Custom challenges across Web, Pwn, and Reverse Engineering",
-      "Automated scoring and event monitoring"
-    ]
   }
 ];
 

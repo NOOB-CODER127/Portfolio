@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BIO } from '../data/portfolioData';
-import { ArrowUpRight, Copy, Check } from 'lucide-react';
+import { Copy, Check } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const [copied, setCopied] = useState(false);
@@ -26,8 +26,8 @@ export const Navbar: React.FC = () => {
           <a href="#projects" className="hover:text-zinc-100 transition-colors">
             projects
           </a>
-          <a href="#services" className="hover:text-zinc-100 transition-colors">
-            services
+          <a href="#skills" className="hover:text-zinc-100 transition-colors">
+            skills
           </a>
           <a href="#experience" className="hover:text-zinc-100 transition-colors">
             experience

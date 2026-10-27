@@ -1,6 +1,6 @@
 import React from 'react';
 import { BIO } from '../data/portfolioData';
-import { ArrowDown, ArrowUpRight, Github, Mail } from 'lucide-react';
+import { ArrowUpRight, Github, Mail } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   return (

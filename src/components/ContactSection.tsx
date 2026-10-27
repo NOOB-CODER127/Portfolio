@@ -17,7 +17,7 @@ export const ContactSection: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Inquiry from ${name}`);
+    const subject = encodeURIComponent(`Message from ${name}`);
     const body = encodeURIComponent(`Hi Prab,\n\n${message}\n\nFrom: ${name} (${email})`);
     window.open(`mailto:${BIO.email}?subject=${subject}&body=${body}`, '_blank');
     setSubmitted(true);
@@ -28,17 +28,17 @@ export const ContactSection: React.FC = () => {
       <div className="max-w-3xl mx-auto px-6">
         <div className="mb-6">
           <h2 className="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">
-            Contact & Inquiries
+            Get in Touch
           </h2>
           <p className="text-sm text-zinc-300">
-            Available for security assessments, tool development, and full-time engineering roles.
+            Have questions about my projects, want to collaborate, or just want to connect? Reach out below.
           </p>
         </div>
 
         {/* Direct Email Card */}
         <div className="p-4 rounded-xl bg-surface/60 border border-border flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-8">
           <div>
-            <div className="text-xs text-zinc-500 font-mono mb-0.5">Email directly</div>
+            <div className="text-xs text-zinc-500 font-mono mb-0.5">Direct email</div>
             <div className="text-sm font-mono text-zinc-200">{BIO.email}</div>
           </div>
           <div className="flex items-center gap-2">
@@ -98,7 +98,7 @@ export const ContactSection: React.FC = () => {
                 rows={3}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                placeholder="What are you building or looking for?"
+                placeholder="Your message..."
                 className="w-full px-3 py-2 rounded-lg bg-surface border border-border focus:border-zinc-500 text-xs text-zinc-200 outline-none font-sans resize-none"
               />
             </div>
